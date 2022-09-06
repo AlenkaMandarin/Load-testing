@@ -1,0 +1,15 @@
+version: '3'
+services:
+  influxdb:
+    image: influxdb:latest
+    restart: always
+    ports:
+      - '8086:8086'
+    volumes:
+      - influxdb-storage:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=db0
+      - INFLUXDB_ADMIN_USER=influx
+      - INFLUXDB_ADMIN_PASSWORD=influx
+volumes:
+  influxdb-storage:
